@@ -1,0 +1,37 @@
+# ~/.config/starship.toml
+
+add_newline = false
+
+format = "$username$hostname $directory $character"
+
+[username]
+show_always = true
+style_user = "bold cyan"
+style_root = "bold red"
+format = "[$user]($style)"
+disabled = false
+
+[hostname]
+ssh_only = false
+disabled = false
+format = "@[$hostname](bold cyan)"
+
+[directory]
+truncation_length = 3
+truncate_to_repo = false
+format = ":[$path]($style)"
+style = "bold green"
+home_symbol = "~"
+
+[character]
+success_symbol = "%"
+error_symbol = "✗"
+
+
+# Disable modules for plain prompt
+[git_branch]
+disabled = true
+
+[package]
+disabled = true
+
