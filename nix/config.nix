@@ -14,11 +14,13 @@
   
   # nix config and hyprland setup !
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  programs.hyprland.enable = true;
-
+  programs.hyprland = {
+      enable = true; 
+    };
+  programs.zsh = {
+      enble = true;
+    };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -41,7 +43,7 @@
     LC_TIME = "en_IN";
   };
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing.enable = false;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -59,19 +61,15 @@
     description = "ijadux2";
     shell = "pkgs.zsh"; 
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
+    packages = with pkgs; [ 
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox = {
+      enble = true;
+    };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
     git
